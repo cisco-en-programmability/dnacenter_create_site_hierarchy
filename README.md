@@ -37,7 +37,7 @@ Area3 Global/EU-Demo
 {"type": "area", "site": {"area": {"parentName": "Global/EU-Demo", "name": "Area3"}}}
 {"status": "True", "siteId": "acd786ce-e455-48ca-bd57-4adf9b8d520e", "result": {"result": {"progress": "Site Creation completed successfully", "endTime": 1582680374945, "startTime": 1582680374850}}}
 
-## Area Creation complete
+-- Area Creation complete
 
 Area1 Global/EU-Demo Area1-BLD1 170 West Tasman Drive, San Jose 95134
 {"type": "building", "site": {"building": {"name": "Area1-BLD1", "address": "170 West Tasman Drive, San Jose 95134"}, "area": {"parentName": "Global/EU-Demo", "name": "Area1"}}}
@@ -55,9 +55,9 @@ Area3 Global/EU-Demo Area3-BLD2 191 West Tasman Drive, San Jose 95134
 {"type": "building", "site": {"building": {"name": "Area3-BLD2", "address": "191 West Tasman Drive, San Jose 95134"}, "area": {"parentName": "Global/EU-Demo", "name": "Area3"}}}
 {"status": "True", "siteId": "15f6ccfd-62b9-4105-87ee-1822d86b4a37", "result": {"result": {"progress": "Site Creation completed successfully", "endTime": 1582680379938, "startTime": 1582680379846}}}
 
-## Building Creation complete 
+-- Building Creation complete 
 
-## Site Creation complete
+-- Site Creation complete
 
 
 **License**
