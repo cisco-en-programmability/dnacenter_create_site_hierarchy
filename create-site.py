@@ -120,23 +120,23 @@ def post_url(url, payload):
 # Main function
 #-----------------------------------------
 
-print "File Name " + sys.argv[1]
+print ("File Name " + sys.argv[1])
 
 with open(sys.argv[1]) as f:
     data = json.load(f)
 
 for key in data["area"]:
-    print key["name"], key["parentName"]
+    print (key["name"], key["parentName"])
     response = create_area_request(key["name"], key["parentName"])
     print(json.dumps(response))
 
-print "\n\n----------## Area Creation complete ##----------\n\n"
+print ("\n\n-- Area Creation complete\n\n")
 
 for key in data["building"]:
-    print key["area_name"], key["area_parentName"], key["bld_name"], key["bld_address"]
+    print (key["area_name"], key["area_parentName"], key["bld_name"], key["bld_address"])
     response = create_bld_request(key["area_name"], key["area_parentName"], key["bld_name"], key["bld_address"])
     print(json.dumps(response))
 
-print "\n\n----------## Building Creation complete ##----------\n\n"
+print ("\n\n-- Building Creation complete \n\n")
 
-print "\n\n----------## Site Creation complete ##----------\n\n"
+print ("\n\n-- Site Creation complete\n\n")
