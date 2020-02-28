@@ -1,3 +1,29 @@
+"""
+Copyright (c) 2020 Cisco and/or its affiliates.
+This software is licensed to you under the terms of the Cisco Sample
+Code License, Version 1.1 (the "License"). You may obtain a copy of the
+License at
+               https://developer.cisco.com/docs/licenses
+All use of the material herein must be in accordance with the terms of
+the License. All rights not expressly granted by the License are
+reserved. Unless required by applicable law or agreed to separately in
+writing, software distributed under the License is distributed on an "AS
+IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+or implied.
+"""
+
+__author__ = "Saurav Prasad TME, IBNG"
+__email__ = "saurav@cisco.com"
+__version__ = "0.1.0"
+__copyright__ = "Copyright (c) 2020 Cisco and/or its affiliates."
+__license__ = "Cisco Sample Code License, Version 1.1"
+
+
+# This file contains the:
+# Cisco DNA Center username and password, server info
+
+# Update this section with the Cisco DNA Center server info and user information
+
 import requests
 import json
 import sys
@@ -37,7 +63,7 @@ def create_area_request(area_name, area_parentName):
     	}
     }
     
-    print(json.dumps(payload))
+    pprint(payload)
     result = post_url("intent/api/v1/site", payload)
     return result
 
@@ -56,7 +82,7 @@ def create_bld_request(area_name, area_parentName, bld_name, bld_address):
         }
     }
 
-    print(json.dumps(payload))
+    pprint(payload)
     result = post_url("intent/api/v1/site", payload)
     return result
 
@@ -116,6 +142,14 @@ def post_url(url, payload):
 
     return response.json()
 
+def pprint(json_data):
+    """
+    Pretty print JSON formatted data
+    :param json_data: data to pretty print
+    :return None
+    """
+    print(json.dumps(json_data, indent=4, separators=(' , ', ' : ')))
+
 #-----------------------------------------
 # Main function
 #-----------------------------------------
@@ -128,15 +162,15 @@ with open(sys.argv[1]) as f:
 for key in data["area"]:
     print (key["name"], key["parentName"])
     response = create_area_request(key["name"], key["parentName"])
-    print(json.dumps(response))
+    pprint(response)
 
-print ("\n\n-- Area Creation complete\n\n")
+print ("\n-- Area Creation complete\n")
 
 for key in data["building"]:
     print (key["area_name"], key["area_parentName"], key["bld_name"], key["bld_address"])
     response = create_bld_request(key["area_name"], key["area_parentName"], key["bld_name"], key["bld_address"])
-    print(json.dumps(response))
+    pprint(response)
 
-print ("\n\n-- Building Creation complete \n\n")
+print ("\n-- Building Creation complete \n")
 
-print ("\n\n-- Site Creation complete\n\n")
+print ("\n-- Site Creation complete\n")
